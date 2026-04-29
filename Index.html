@@ -17,28 +17,28 @@
         body {
             background: linear-gradient(135deg, #eef2ff 0%, #d9e6ff 100%);
             min-height: 100vh;
-            padding: 2rem 1.5rem;
+            padding: 2rem 2rem;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
         }
 
-        /* Header with auth */
         .main-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            position: relative;
         }
         .hero {
             text-align: center;
             margin-bottom: 0.5rem;
         }
         .hero h1 {
-            font-size: 2.8rem;
+            font-size: 3.2rem;
             background: linear-gradient(135deg, #1e3a8a, #2563eb, #3b82f6);
             -webkit-background-clip: text;
             background-clip: text;
@@ -57,52 +57,103 @@
             font-weight: 600;
             margin-top: 0.5rem;
             display: inline-block;
-            padding: 0.4rem 1.8rem;
+            padding: 0.5rem 2rem;
             border-radius: 40px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            font-size: 0.95rem;
+            font-size: 1.1rem;
             border: 1px solid #bfdbfe;
         }
         .auth-buttons {
             display: flex;
-            gap: 12px;
+            gap: 15px;
         }
         .btn-outline {
             background: white;
             border: 1px solid #3b82f6;
             color: #1e3a8a;
-            padding: 8px 20px;
+            padding: 10px 24px;
             border-radius: 40px;
             font-weight: 600;
             cursor: pointer;
             transition: 0.2s;
+            font-size: 1rem;
         }
         .btn-outline:hover {
             background: #3b82f6;
             color: white;
         }
-        .btn-primary {
-            background: #2563eb;
-            color: white;
-            border: none;
-        }
         .user-info {
             background: white;
-            padding: 8px 18px;
+            padding: 10px 22px;
             border-radius: 40px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            font-size: 1rem;
         }
         .logout-btn {
             background: #fee2e2;
             border: none;
-            padding: 4px 12px;
+            padding: 6px 16px;
             border-radius: 30px;
             color: #b91c1c;
             cursor: pointer;
             font-weight: 600;
+        }
+        /* 3-dots menu in top-right corner */
+        .top-right-dots {
+            position: relative;
+            cursor: pointer;
+            font-size: 2rem;
+            line-height: 1;
+            padding: 0 8px;
+            user-select: none;
+            color: #1e3a8a;
+            background: white;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            transition: 0.2s;
+        }
+        .top-right-dots:hover {
+            background: #eef2ff;
+        }
+        .dots-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            min-width: 220px;
+            z-index: 100;
+            display: none;
+            margin-top: 8px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+        .dots-dropdown a {
+            display: block;
+            padding: 12px 18px;
+            text-decoration: none;
+            color: #1e3a8a;
+            font-weight: 500;
+            transition: 0.2s;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .dots-dropdown a:last-child {
+            border-bottom: none;
+        }
+        .dots-dropdown a:hover {
+            background: #eff6ff;
+        }
+        .top-right-dots.active .dots-dropdown {
+            display: block;
         }
 
         .support-bar {
@@ -112,7 +163,7 @@
             flex-wrap: wrap;
             background: white;
             border-radius: 3rem;
-            padding: 0.7rem 1.8rem;
+            padding: 1rem 2rem;
             margin-bottom: 2rem;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
             border: 1px solid #d1e0ff;
@@ -125,86 +176,97 @@
             font-weight: 700;
             color: #075e54;
             background: #e8f5e9;
-            padding: 0.4rem 1rem;
+            padding: 0.5rem 1.2rem;
             border-radius: 50px;
+            font-size: 1rem;
         }
         .support-contact i {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: #25D366;
         }
         .whatsapp-btn {
             background: #25D366;
             color: white;
-            padding: 0.4rem 1.2rem;
+            padding: 0.5rem 1.5rem;
             border-radius: 40px;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 8px;
             transition: 0.2s;
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 600;
         }
         .coming-soon-badge {
             background: #dbeafe;
             color: #1e3a8a;
-            padding: 0.4rem 1.2rem;
+            padding: 0.5rem 1.5rem;
             border-radius: 40px;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             font-weight: 600;
         }
 
-        /* Main content - hidden until logged in */
         .protected-content {
             display: none;
         }
+        .panel {
+            display: none;
+        }
+        .panel.active-panel {
+            display: block;
+        }
+
         .dashboard {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            gap: 2.5rem;
             margin-bottom: 2rem;
         }
 
         .card {
             background: white;
             border-radius: 2rem;
-            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
-            padding: 1.8rem;
+            box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.15);
+            padding: 2rem;
             transition: all 0.2s ease;
             border: 1px solid #e2edff;
         }
+        .card:hover {
+            box-shadow: 0 30px 45px -12px #3b82f640;
+            border-color: #93c5fd;
+        }
 
         .card-title {
-            font-size: 1.7rem;
+            font-size: 1.9rem;
             font-weight: 800;
             color: #1e3a8a;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            border-left: 5px solid #3b82f6;
-            padding-left: 1rem;
+            gap: 12px;
+            border-left: 6px solid #3b82f6;
+            padding-left: 1.2rem;
         }
 
         .sub {
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             color: #4b5563;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
             background: #eff6ff;
             display: inline-block;
-            padding: 0.2rem 1rem;
+            padding: 0.3rem 1.2rem;
             border-radius: 30px;
         }
 
         .items-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 0.9rem;
-            max-height: 380px;
+            grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+            gap: 1rem;
+            max-height: 420px;
             overflow-y: auto;
             padding-right: 0.5rem;
         }
-        .items-grid::-webkit-scrollbar { width: 5px; }
+        .items-grid::-webkit-scrollbar { width: 6px; }
         .items-grid::-webkit-scrollbar-track { background: #e2e8f0; border-radius: 10px; }
         .items-grid::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 10px; }
 
@@ -212,34 +274,35 @@
             background: #f8fafc;
             border: 1px solid #cbd5e1;
             border-radius: 1.2rem;
-            padding: 0.7rem 0.2rem;
+            padding: 0.9rem 0.2rem;
             text-align: center;
             font-weight: 600;
             cursor: pointer;
             transition: 0.2s;
+            font-size: 0.95rem;
         }
         .option-btn:hover { background: #dbeafe; transform: translateY(-2px); border-color: #3b82f6; }
         .option-btn.active {
             background: linear-gradient(95deg, #2563eb, #3b82f6);
             color: white;
             border-color: #1e3a8a;
-            box-shadow: 0 5px 12px #3b82f660;
+            box-shadow: 0 6px 14px #3b82f660;
         }
-        .price { font-size: 0.85rem; font-weight: 800; color: #1e40af; }
+        .price { font-size: 0.9rem; font-weight: 800; color: #1e40af; margin-top: 5px; }
         .option-btn.active .price { color: #ffeaac; }
 
         .membership-options {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 0.8rem;
+            gap: 1.2rem;
+            margin-top: 1rem;
         }
 
-        .input-group { margin-bottom: 1.2rem; }
-        .input-group label { display: block; font-weight: 700; margin-bottom: 0.5rem; color: #1e3a8a; }
+        .input-group { margin-bottom: 1.4rem; }
+        .input-group label { display: block; font-weight: 700; margin-bottom: 0.6rem; color: #1e3a8a; font-size: 1rem; }
         .input-group input {
             width: 100%;
-            padding: 0.9rem 1rem;
+            padding: 1rem 1.2rem;
             background: #f1f5f9;
             border: 1px solid #cbd5e1;
             border-radius: 1rem;
@@ -251,43 +314,48 @@
             background: #f1f5f9;
             border: 1px dashed #3b82f6;
             border-radius: 1rem;
-            padding: 0.5rem;
+            padding: 0.8rem;
             text-align: center;
             cursor: pointer;
         }
-        .file-name { font-size: 0.8rem; color: #2563eb; margin-top: 5px; }
+        .file-name { font-size: 0.85rem; color: #2563eb; margin-top: 6px; }
         #screenshot { display: none; }
 
         .selected-display {
             background: #eff6ff;
             border-radius: 1.5rem;
-            padding: 1.2rem;
-            margin: 1rem 0;
+            padding: 1.4rem;
+            margin: 1.2rem 0;
             border: 2px solid #3b82f6;
         }
+        .selected-display p {
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+        }
         .selected-display .highlight-price {
-            font-size: 1.5rem;
+            font-size: 1.7rem;
             color: #2563eb;
             background: white;
             display: inline-block;
-            padding: 0.1rem 1rem;
+            padding: 0.2rem 1.2rem;
             border-radius: 40px;
         }
         .qr-wrapper {
             text-align: center;
             background: #f8fafc;
             border-radius: 1.5rem;
-            padding: 1rem;
-            margin: 1rem 0;
+            padding: 1.2rem;
+            margin: 1.2rem 0;
             border: 1px solid #bfdbfe;
         }
-        #qrcode { display: flex; justify-content: center; margin: 0.8rem 0; }
+        #qrcode { display: flex; justify-content: center; margin: 1rem 0; }
+        #qrcode canvas, #qrcode img { width: 180px; height: 180px; }
 
         .btn-order {
             background: linear-gradient(95deg, #1e3a8a, #2563eb);
             width: 100%;
-            padding: 1rem;
-            font-size: 1.2rem;
+            padding: 1.2rem;
+            font-size: 1.3rem;
             font-weight: bold;
             border-radius: 2rem;
             color: white;
@@ -296,52 +364,144 @@
         }
         .btn-order:disabled { opacity: 0.6; cursor: not-allowed; }
 
-        /* Orders Table */
+        /* Orders Table - full history with date/time */
         .orders-section {
             background: white;
             border-radius: 2rem;
-            padding: 1.8rem;
-            margin-top: 1rem;
+            padding: 2rem;
+            margin-top: 0;
             border: 1px solid #e2edff;
+            overflow-x: auto;
         }
         .orders-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 1rem;
+            margin-top: 1.2rem;
+            min-width: 500px;
         }
         .orders-table th, .orders-table td {
-            padding: 12px;
+            padding: 12px 10px;
             text-align: left;
             border-bottom: 1px solid #e2e8f0;
+            font-size: 0.95rem;
+        }
+        .orders-table th:first-child, .orders-table td:first-child {
+            text-align: center;
         }
         .status-pending {
             background: #fef3c7;
             color: #b45309;
-            padding: 4px 12px;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+            border-left: 3px solid #f59e0b;
         }
         .status-complete {
             background: #dcfce7;
             color: #15803d;
-            padding: 4px 12px;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+            border-left: 3px solid #22c55e;
+        }
+        .account-info {
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem;
+            text-align: center;
+        }
+        .account-details {
+            background: #f8fafc;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            text-align: left;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .account-details p {
+            margin: 12px 0;
+            font-size: 1.1rem;
+        }
+        @media (max-width: 768px) {
+            .orders-table th, .orders-table td {
+                padding: 8px 6px;
+                font-size: 0.8rem;
+            }
+            .status-pending, .status-complete {
+                padding: 4px 10px;
+                font-size: 0.75rem;
+            }
         }
         .admin-badge {
             background: #8b5cf6;
             color: white;
-            padding: 2px 8px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            margin-left: 8px;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            margin-left: 12px;
         }
 
-        /* Modal */
+        /* Thank You Modal */
+        .modal-thankyou {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            z-index: 1100;
+        }
+        .thankyou-content {
+            background: white;
+            max-width: 450px;
+            width: 90%;
+            border-radius: 2.5rem;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.2);
+            border-top: 8px solid #3b82f6;
+        }
+        .thankyou-content i {
+            font-size: 4.5rem;
+            color: #22c55e;
+            margin-bottom: 1rem;
+        }
+        .thankyou-content h2 {
+            font-size: 2rem;
+            color: #1e3a8a;
+            margin-bottom: 0.5rem;
+        }
+        .thankyou-content p {
+            color: #4b5563;
+            margin: 1rem 0;
+            line-height: 1.5;
+        }
+        .thankyou-close {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 10px 28px;
+            border-radius: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 0.8rem;
+            font-size: 1rem;
+        }
+
         .modal {
             display: none;
             position: fixed;
@@ -358,45 +518,54 @@
             max-width: 500px;
             width: 90%;
             border-radius: 2rem;
-            padding: 2rem;
+            padding: 2.2rem;
             text-align: center;
         }
-        .modal-content input, .modal-content select {
+        .modal-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        .modal-content input {
             width: 100%;
-            margin: 10px 0;
-            padding: 10px;
+            margin: 12px 0;
+            padding: 12px;
             border-radius: 1rem;
             border: 1px solid #cbd5e1;
+            font-size: 1rem;
         }
         .modal-buttons {
             display: flex;
-            gap: 10px;
-            margin-top: 15px;
+            gap: 12px;
+            margin-top: 20px;
         }
         .toast-msg {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
+            bottom: 30px;
+            right: 30px;
             background: white;
-            padding: 12px 24px;
+            padding: 14px 28px;
             border-radius: 60px;
-            border-left: 5px solid #2563eb;
+            border-left: 6px solid #2563eb;
             z-index: 999;
+            font-weight: 500;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        @media (max-width: 880px) {
-            .dashboard { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2rem; }
+        @media (max-width: 1000px) {
+            .dashboard { grid-template-columns: 1fr; gap: 1.8rem; }
+            body { padding: 1.5rem; }
+            .hero h1 { font-size: 2.5rem; }
         }
         footer {
             text-align: center;
-            margin-top: 2rem;
+            margin-top: 2.5rem;
             color: #4b5563;
             background: white;
             width: fit-content;
             margin-left: auto;
             margin-right: auto;
-            padding: 0.5rem 1.5rem;
+            padding: 0.8rem 2rem;
             border-radius: 40px;
+            font-size: 0.9rem;
         }
         .login-message {
             text-align: center;
@@ -404,13 +573,7 @@
             padding: 3rem;
             border-radius: 2rem;
             margin: 2rem auto;
-            max-width: 500px;
-        }
-        .admin-link {
-            cursor: pointer;
-            font-size: 0.8rem;
-            color: #6b7280;
-            text-decoration: underline;
+            max-width: 550px;
         }
     </style>
 </head>
@@ -422,84 +585,130 @@
             <h1>✨ AADITYA <span>TOP UP CENTRE</span> ✨</h1>
             <div class="tagline">⚡ Free Fire Diamonds • eSewa • Upload Screenshot ⚡</div>
         </div>
-        <div id="authWidget" class="auth-buttons">
-            <button class="btn-outline" id="loginBtn">Sign In</button>
-            <button class="btn-outline" id="signupBtn">Sign Up</button>
-            <button class="btn-outline" id="adminLoginBtn">Admin</button>
-        </div>
-        <div id="userInfo" style="display:none;" class="user-info">
-            <span><i class="fas fa-user-circle"></i> <span id="userName"></span></span>
-            <button class="logout-btn" id="logoutBtn">Logout</button>
+        <div class="header-actions" style="display: flex; align-items: center; gap: 15px;">
+            <div id="authWidget" class="auth-buttons">
+                <button class="btn-outline" id="loginBtn">Sign In</button>
+                <button class="btn-outline" id="signupBtn">Sign Up</button>
+            </div>
+            <div id="userInfo" style="display:none;" class="user-info">
+                <span><i class="fas fa-user-circle"></i> <span id="userName"></span></span>
+                <button class="logout-btn" id="logoutBtn">Logout</button>
+            </div>
+            <!-- 3-dots menu in top-right corner (visible only when logged in) -->
+            <div id="topRightDots" class="top-right-dots" style="display: none;">
+                ⋮
+                <div class="dots-dropdown">
+                    <a href="#" data-panel="account">📋 Account Information</a>
+                    <a href="#" data-panel="topup">💎 Top Up</a>
+                    <a href="#" data-panel="orders">📦 My Orders (History)</a>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="support-bar">
         <div class="support-contact"><i class="fab fa-whatsapp"></i> Support: <strong>+977 9703078638</strong></div>
-        <a href="https://wa.me/9779703078638" target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Chat</a>
+        <a href="https://wa.me/9779703078638" target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
         <div class="coming-soon-badge">🎮 Only Free Fire • Other Games Soon</div>
     </div>
 
-    <!-- User Protected Content -->
+    <!-- Protected Content (visible after login) -->
     <div id="protectedContent" class="protected-content">
-        <div class="dashboard">
-            <div class="card">
-                <div class="card-title"><i class="fas fa-gem"></i> FREE FIRE DIAMONDS</div>
-                <div class="sub">👉 Click any pack to select</div>
-                <div class="items-grid" id="diamondGrid"></div>
-                <div class="membership-area">
-                    <div class="card-title" style="font-size:1.4rem;"><i class="fas fa-trophy"></i> MEMBERSHIP & PASSES</div>
-                    <div class="membership-options" id="membershipOptions"></div>
-                </div>
-                <div class="esewa-note" style="margin-top:1rem; text-align:center;">💰 All prices in INR</div>
-            </div>
-
-            <div class="card info-panel">
-                <div class="card-title"><i class="fas fa-shopping-cart"></i> PLACE YOUR ORDER</div>
-                <div class="input-group"><label><i class="fas fa-user"></i> Full Name</label><input type="text" id="fullName" placeholder="Full name" autocomplete="off"></div>
-                <div class="input-group"><label><i class="fas fa-gamepad"></i> Game Name</label><input type="text" id="gameName" value="Free Fire" readonly style="background:#eef2ff;"></div>
-                <div class="input-group"><label><i class="fas fa-id-card"></i> Free Fire UID</label><input type="text" id="uid" placeholder="Enter UID (numbers only)"></div>
-
-                <div class="selected-display" id="selectedDisplay">
-                    <p><i class="fas fa-info-circle"></i> <strong>No item selected</strong></p>
-                    <p>📦 Item: <span id="selectedItemName">—</span></p>
-                    <p>💰 Amount: <span class="highlight-price" id="selectedPrice">₹0</span></p>
+        <!-- Panel: Top Up (default) -->
+        <div id="panel-topup" class="panel active-panel">
+            <div class="dashboard">
+                <div class="card">
+                    <div class="card-title"><i class="fas fa-gem"></i> FREE FIRE DIAMONDS</div>
+                    <div class="sub">👉 Click any pack to select</div>
+                    <div class="items-grid" id="diamondGrid"></div>
+                    <div class="membership-area">
+                        <div class="card-title" style="font-size:1.6rem;"><i class="fas fa-trophy"></i> MEMBERSHIP & PASSES</div>
+                        <div class="membership-options" id="membershipOptions"></div>
+                    </div>
+                    <div class="esewa-note" style="margin-top:1.2rem; text-align:center;">💰 All prices in INR</div>
                 </div>
 
-                <div class="qr-wrapper">
-                    <div><i class="fas fa-mobile-alt"></i> eSewa™ Rekha Devi Das | 9703078638</div>
-                    <div id="qrcode"></div>
-                    <p>📸 Scan QR & pay exact amount</p>
-                    <p class="esewa-note">✅ After payment, upload screenshot</p>
-                </div>
+                <div class="card info-panel">
+                    <div class="card-title"><i class="fas fa-shopping-cart"></i> PLACE YOUR ORDER</div>
+                    <div class="input-group"><label><i class="fas fa-user"></i> Full Name</label><input type="text" id="fullName" placeholder="Full name" autocomplete="off"></div>
+                    <div class="input-group"><label><i class="fas fa-gamepad"></i> Game Name</label><input type="text" id="gameName" value="Free Fire" readonly style="background:#eef2ff;"></div>
+                    <div class="input-group"><label><i class="fas fa-id-card"></i> Free Fire UID</label><input type="text" id="uid" placeholder="Enter UID (numbers only)"></div>
 
-                <div class="input-group">
-                    <label><i class="fas fa-image"></i> Payment Screenshot</label>
-                    <div class="file-upload-area" id="fileUploadArea"><i class="fas fa-cloud-upload-alt"></i> Click to select<br><small>JPG/PNG</small><input type="file" id="screenshot" accept="image/*"><div id="fileName" class="file-name">No file</div></div>
+                    <div class="selected-display" id="selectedDisplay">
+                        <p><i class="fas fa-info-circle"></i> <strong>No item selected</strong></p>
+                        <p>📦 Item: <span id="selectedItemName">—</span></p>
+                        <p>💰 Amount: <span class="highlight-price" id="selectedPrice">₹0</span></p>
+                    </div>
+
+                    <div class="qr-wrapper">
+                        <div><i class="fas fa-mobile-alt"></i> eSewa™ Rekha Devi Das | 9703078638</div>
+                        <div id="qrcode"></div>
+                        <p>📸 Scan QR & pay exact amount</p>
+                        <p class="esewa-note">✅ After payment, upload screenshot</p>
+                    </div>
+
+                    <div class="input-group">
+                        <label><i class="fas fa-image"></i> Payment Screenshot</label>
+                        <div class="file-upload-area" id="fileUploadArea"><i class="fas fa-cloud-upload-alt"></i> Click to select screenshot<br><small>JPG/PNG, max 5MB</small><input type="file" id="screenshot" accept="image/*"><div id="fileName" class="file-name">No file chosen</div></div>
+                    </div>
+                    <button class="btn-order" id="submitOrderBtn" disabled><i class="fas fa-paper-plane"></i> CONFIRM & PLACE ORDER</button>
+                    <div style="text-align:center; margin-top:15px;"><a href="https://wa.me/9779703078638" target="_blank" style="background:#25D366; color:white; padding:8px 20px; border-radius:40px; text-decoration:none; display:inline-flex; align-items:center; gap:8px;">Need Help? WhatsApp</a></div>
                 </div>
-                <button class="btn-order" id="submitOrderBtn" disabled><i class="fas fa-paper-plane"></i> CONFIRM & PLACE ORDER</button>
-                <div style="text-align:center; margin-top:12px;"><a href="https://wa.me/9779703078638" target="_blank" style="background:#25D366; color:white; padding:6px 16px; border-radius:40px; text-decoration:none;">Need Help? WhatsApp</a></div>
             </div>
         </div>
 
-        <div id="ordersSection" class="orders-section">
-            <div class="card-title"><i class="fas fa-history"></i> My Orders</div>
-            <div style="overflow-x:auto;">
-                <table class="orders-table">
-                    <thead><tr><th>Order ID</th><th>Item</th><th>Amount</th><th>Date</th><th>Status</th></tr></thead>
-                    <tbody id="ordersList"></tbody>
-                </table>
+        <!-- Panel: My Orders - Full history with Date/Time -->
+        <div id="panel-orders" class="panel">
+            <div class="orders-section">
+                <div class="card-title"><i class="fas fa-history"></i> My Order History (All transactions)</div>
+                <div style="overflow-x: auto;">
+                    <table class="orders-table">
+                        <thead>
+                            <tr>
+                                <th>Status</th>
+                                <th>Item</th>
+                                <th>Amount</th>
+                                <th>Date & Time</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersList"></tbody>
+                    </table>
+                </div>
+                <p style="font-size:0.85rem; margin-top:12px;">* Complete history — all orders ever placed. Status updates after admin verification.</p>
             </div>
-            <p style="font-size:0.8rem; margin-top:12px;">* Status updates after admin verification.</p>
+        </div>
+
+        <!-- Panel: Account Information -->
+        <div id="panel-account" class="panel">
+            <div class="account-info">
+                <div class="card-title"><i class="fas fa-user-circle"></i> Account Information</div>
+                <div class="account-details">
+                    <p><strong>👤 Name:</strong> <span id="accName"></span></p>
+                    <p><strong>📧 Email:</strong> <span id="accEmail"></span></p>
+                    <p><strong>🆔 User ID:</strong> <span id="accUserId"></span></p>
+                    <p><strong>📅 Member Since:</strong> <span id="accSince"></span></p>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Not logged in message -->
     <div id="notLoggedInMessage" class="login-message">
-        <i class="fas fa-lock"></i>
+        <i class="fas fa-lock" style="font-size:3rem; color:#3b82f6;"></i>
         <h2>Please Sign In or Sign Up</h2>
         <p>You need to login to access the top-up centre and place orders.</p>
         <button class="btn-outline" id="gotoLoginBtn" style="margin-top:1rem;">Sign In</button>
-        <button class="btn-outline" id="gotoSignupBtn" style="margin-top:1rem; margin-left:10px;">Sign Up</button>
+        <button class="btn-outline" id="gotoSignupBtn" style="margin-top:1rem; margin-left:12px;">Sign Up</button>
+    </div>
+
+    <!-- Thank You Modal -->
+    <div id="thankyouModal" class="modal-thankyou">
+        <div class="thankyou-content">
+            <i class="fas fa-check-circle"></i>
+            <h2>Thank You! 🎉</h2>
+            <p>Your order has been placed successfully.<br>Admin will verify the payment screenshot and top-up your Free Fire account shortly.<br><br>You can track the status in "My Orders".</p>
+            <button class="thankyou-close" id="closeThankYouBtn">Continue Shopping</button>
+        </div>
     </div>
 
     <!-- Admin Panel (hidden initially) -->
@@ -509,10 +718,10 @@
             <button id="backToUserBtn" class="btn-outline">← Back to User View</button>
             <button id="adminLogoutBtn" class="btn-outline" style="margin-left:10px;">Admin Logout</button>
         </div>
-        <div id="adminStats" style="background:#f1f5f9; padding:15px; border-radius:1rem; margin-bottom:20px;"></div>
+        <div id="adminStats" style="background:#f1f5f9; padding:18px; border-radius:1.2rem; margin-bottom:25px; font-weight:500;"></div>
         <div style="overflow-x:auto;">
             <table class="orders-table" id="adminOrdersTable">
-                <thead><tr><th>Customer</th><th>Email</th><th>Order ID</th><th>Item</th><th>Amount</th><th>Date</th><th>Status</th><th>Action</th></tr></thead>
+                <thead><tr><th>Customer</th><th>Email</th><th>Order ID</th><th>Item</th><th>Amount</th><th>Date & Time</th><th>Status</th><th>Action</th></tr></thead>
                 <tbody id="adminOrdersList"></tbody>
             </table>
         </div>
@@ -521,7 +730,7 @@
     <footer>© 2025 Aaditya Top Up Centre | eSewa | WhatsApp +977 9703078638</footer>
 </div>
 
-<!-- Au sentth Modals -->
+<!-- Auth Modals -->
 <div id="loginModal" class="modal"><div class="modal-content"><h3>Sign In</h3><input type="email" id="loginEmail" placeholder="Email"><input type="password" id="loginPassword" placeholder="Password"><div class="modal-buttons"><button id="doLoginBtn" class="btn-outline">Login</button><button id="closeLoginModal" class="btn-outline">Cancel</button></div></div></div>
 <div id="signupModal" class="modal"><div class="modal-content"><h3>Sign Up</h3><input type="text" id="signupName" placeholder="Full Name"><input type="email" id="signupEmail" placeholder="Email"><input type="password" id="signupPassword" placeholder="Password"><div class="modal-buttons"><button id="doSignupBtn" class="btn-outline">Register</button><button id="closeSignupModal" class="btn-outline">Cancel</button></div></div></div>
 
@@ -534,4 +743,335 @@
         { diamonds: 480, price: 440 }, { diamonds: 610, price: 560 }, { diamonds: 725, price: 650 },
         { diamonds: 850, price: 760 }, { diamonds: 965, price: 880 }, { diamonds: 1090, price: 970 },
         { diamonds: 1240, price: 1080 }, { diamonds: 1355, price: 1200 }, { diamonds: 1480, price: 1300 },
-        { diamonds: 1720, price: 1600 }, { diamonds: 2090, price:
+        { diamonds: 1720, price: 1600 }, { diamonds: 2090, price: 1800 }, { diamonds: 2530, price: 2200 }
+    ];
+    const membershipOffers = [
+        { name: "🎁 Weekly Membership", price: 220, desc: "7 days" },
+        { name: "🎖️ Monthly Membership", price: 1100, desc: "30 days" },
+        { name: "🔥 Weekly+Monthly Combo", price: 1180, desc: "Best value" }
+    ];
+
+    let currentSelection = null;
+    let selectedFile = null;
+    let currentUser = null;
+    let isAdminMode = false;
+
+    const ADMIN_EMAIL = "admin@aaditya.com";
+    const ADMIN_PASSWORD = "admin123";
+
+    // ---------- AUTH & STORAGE ----------
+    function loadUsers() { return JSON.parse(localStorage.getItem('topup_users') || '[]'); }
+    function saveUsers(users) { localStorage.setItem('topup_users', JSON.stringify(users)); }
+    function getCurrentUser() { return JSON.parse(sessionStorage.getItem('topup_currentUser')); }
+    function setCurrentUser(user) { sessionStorage.setItem('topup_currentUser', JSON.stringify(user)); currentUser = user; }
+    function clearCurrentUser() { sessionStorage.removeItem('topup_currentUser'); currentUser = null; }
+
+    // Panel switching with refresh
+    function switchPanel(panelId) {
+        document.querySelectorAll('.panel').forEach(panel => panel.classList.remove('active-panel'));
+        document.getElementById(`panel-${panelId}`).classList.add('active-panel');
+        
+        if (panelId === 'orders') {
+            renderOrders();  // refresh order history
+        } else if (panelId === 'account') {
+            updateAccountInfo();
+        } else if (panelId === 'topup') {
+            renderDiamondGrid();
+            renderMembershipOptions();
+            updateUIAndQR();
+            updateOrderButton();
+        }
+    }
+
+    function updateAccountInfo() {
+        const user = getCurrentUser();
+        if (user) {
+            document.getElementById('accName').innerText = user.name || '—';
+            document.getElementById('accEmail').innerText = user.email;
+            document.getElementById('accUserId').innerText = user.email.split('@')[0];
+            let since = localStorage.getItem(`user_since_${user.email}`);
+            if (!since) {
+                since = new Date().toLocaleDateString();
+                localStorage.setItem(`user_since_${user.email}`, since);
+            }
+            document.getElementById('accSince').innerText = since;
+        }
+    }
+
+    function updateUIForAuth() {
+        const user = getCurrentUser();
+        const protectedDiv = document.getElementById('protectedContent');
+        const notLoggedDiv = document.getElementById('notLoggedInMessage');
+        const authWidget = document.getElementById('authWidget');
+        const userInfoDiv = document.getElementById('userInfo');
+        const userNameSpan = document.getElementById('userName');
+        const dotsMenu = document.getElementById('topRightDots');
+
+        if (user && !isAdminMode) {
+            protectedDiv.style.display = 'block';
+            notLoggedDiv.style.display = 'none';
+            authWidget.style.display = 'none';
+            userInfoDiv.style.display = 'flex';
+            userNameSpan.innerText = user.name || user.email;
+            dotsMenu.style.display = 'flex';
+            switchPanel('topup');
+            renderOrders(); // load orders into memory
+            updateAccountInfo();
+            updateOrderButton();
+        } else if (user && isAdminMode) {
+            protectedDiv.style.display = 'none';
+            notLoggedDiv.style.display = 'none';
+            authWidget.style.display = 'none';
+            userInfoDiv.style.display = 'flex';
+            userNameSpan.innerText = "Admin";
+            dotsMenu.style.display = 'none';
+            document.getElementById('adminPanel').style.display = 'block';
+            renderAdminPanel();
+        } else {
+            protectedDiv.style.display = 'none';
+            notLoggedDiv.style.display = 'block';
+            authWidget.style.display = 'flex';
+            userInfoDiv.style.display = 'none';
+            dotsMenu.style.display = 'none';
+            document.getElementById('adminPanel').style.display = 'none';
+            isAdminMode = false;
+        }
+    }
+
+    function saveOrderForUser(email, orderObj) {
+        let users = loadUsers();
+        const userIndex = users.findIndex(u => u.email === email);
+        if (userIndex !== -1) {
+            if (!users[userIndex].orders) users[userIndex].orders = [];
+            users[userIndex].orders.unshift(orderObj);
+            saveUsers(users);
+            const sess = getCurrentUser();
+            if (sess && sess.email === email && !isAdminMode) {
+                sess.orders = users[userIndex].orders;
+                setCurrentUser(sess);
+                currentUser = sess;
+            }
+        }
+    }
+
+    // Full order history with date/time
+    function renderOrders() {
+        const user = getCurrentUser();
+        const tbody = document.getElementById('ordersList');
+        if (!user || !user.orders || user.orders.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">No orders yet — place your first order!</td></tr>';
+            return;
+        }
+        tbody.innerHTML = '';
+        user.orders.forEach(order => {
+            const statusHTML = order.status === 'Completed' 
+                ? '<span class="status-complete"><i class="fas fa-check-circle"></i> Completed</span>'
+                : '<span class="status-pending"><i class="fas fa-clock"></i> Pending</span>';
+            tbody.innerHTML += `
+                <tr>
+                    <td style="text-align:center;">${statusHTML}</td>
+                    <td>${order.item}</td>
+                    <td>₹${order.amount}</td>
+                    <td>${order.dateTime}</td>
+                </tr>
+            `;
+        });
+    }
+
+    // Admin functions (unchanged, uses full details)
+    function getAllOrders() {
+        const users = loadUsers();
+        let allOrders = [];
+        users.forEach(user => {
+            if (user.orders && user.orders.length) {
+                user.orders.forEach(order => {
+                    allOrders.push({ customerName: user.name, customerEmail: user.email, ...order });
+                });
+            }
+        });
+        return allOrders.sort((a,b) => new Date(b.dateTime) - new Date(a.dateTime));
+    }
+
+    function renderAdminPanel() {
+        const orders = getAllOrders();
+        const stats = { pending: orders.filter(o => o.status === 'Pending').length, completed: orders.filter(o => o.status === 'Completed').length, total: orders.length };
+        document.getElementById('adminStats').innerHTML = `<div style="display:flex; gap:25px;"><div>📊 Total: ${stats.total}</div><div>⏳ Pending: ${stats.pending}</div><div>✅ Completed: ${stats.completed}</div></div>`;
+        const tbody = document.getElementById('adminOrdersList');
+        tbody.innerHTML = '';
+        orders.forEach(order => {
+            const row = tbody.insertRow();
+            row.insertCell(0).innerText = order.customerName;
+            row.insertCell(1).innerText = order.customerEmail;
+            row.insertCell(2).innerText = order.orderId;
+            row.insertCell(3).innerText = order.item;
+            row.insertCell(4).innerText = `₹${order.amount}`;
+            row.insertCell(5).innerText = order.dateTime;
+            row.insertCell(6).innerHTML = order.status === 'Completed' ? '<span class="status-complete">✅ Completed</span>' : '<span class="status-pending">⏳ Pending</span>';
+            const select = document.createElement('select');
+            select.innerHTML = `<option value="Pending" ${order.status === 'Pending' ? 'selected' : ''}>Pending</option><option value="Completed" ${order.status === 'Completed' ? 'selected' : ''}>Completed</option>`;
+            select.onchange = (e) => updateOrderStatus(order.customerEmail, order.orderId, e.target.value);
+            row.insertCell(7).appendChild(select);
+        });
+    }
+
+    function updateOrderStatus(customerEmail, orderId, newStatus) {
+        let users = loadUsers();
+        const userIndex = users.findIndex(u => u.email === customerEmail);
+        if (userIndex !== -1) {
+            const orderIndex = users[userIndex].orders.findIndex(o => o.orderId === orderId);
+            if (orderIndex !== -1) {
+                users[userIndex].orders[orderIndex].status = newStatus;
+                saveUsers(users);
+                showToast(`Order ${orderId} marked as ${newStatus}`, false);
+                renderAdminPanel();
+                const current = getCurrentUser();
+                if (current && current.email === customerEmail && !isAdminMode) {
+                    current.orders = users[userIndex].orders;
+                    setCurrentUser(current);
+                    renderOrders();
+                }
+            }
+        }
+    }
+
+    // Top-up UI helpers (same as before)
+    function renderDiamondGrid() { const c = document.getElementById('diamondGrid'); if(!c) return; c.innerHTML = ''; diamondPacks.forEach(pack => { const btn = document.createElement('div'); btn.className = 'option-btn'; if (currentSelection?.type === 'diamond' && currentSelection.rawData === pack) btn.classList.add('active'); btn.innerHTML = `<div>✨ ${pack.diamonds} Diamonds</div><div class="price">₹ ${pack.price}</div>`; btn.onclick = () => selectDiamondPack(pack); c.appendChild(btn); }); }
+    function renderMembershipOptions() { const c = document.getElementById('membershipOptions'); if(!c) return; c.innerHTML = ''; membershipOffers.forEach(offer => { const btn = document.createElement('div'); btn.className = 'option-btn'; if (currentSelection?.type === 'membership' && currentSelection.itemName === offer.name) btn.classList.add('active'); btn.innerHTML = `<div>${offer.name}</div><div class="price">₹ ${offer.price}</div><small>${offer.desc}</small>`; btn.onclick = () => selectMembership(offer); c.appendChild(btn); }); }
+    function selectDiamondPack(pack) { currentSelection = { type: "diamond", itemName: `${pack.diamonds} Diamonds`, price: pack.price, rawData: pack }; updateUIAndQR(); highlightActive(); updateOrderButton(); }
+    function selectMembership(offer) { currentSelection = { type: "membership", itemName: offer.name, price: offer.price, rawData: offer }; updateUIAndQR(); highlightActive(); updateOrderButton(); }
+    function highlightActive() { renderDiamondGrid(); renderMembershipOptions(); }
+    function generateQRText() { if (!currentSelection) return "Select pack"; let product = currentSelection.type === 'diamond' ? `${currentSelection.rawData.diamonds} FreeFire Diamonds` : currentSelection.itemName; return `Pay ₹${currentSelection.price} to Aaditya Top Up (eSewa:9703078638) - ${product}`; }
+    function refreshQRCode() { const q = document.getElementById('qrcode'); if(!q) return; q.innerHTML = ''; if (!currentSelection) { q.innerHTML = '<p>Select item</p>'; return; } new QRCode(q, { text: generateQRText(), width: 160, height: 160, colorDark: "#1e3a8a", colorLight: "#ffffff", correctLevel: QRCode.CorrectLevel.M }); }
+    function updateUIAndQR() { if (currentSelection) { document.getElementById('selectedItemName').innerText = currentSelection.itemName; document.getElementById('selectedPrice').innerHTML = `₹${currentSelection.price}`; document.querySelector('#selectedDisplay p:first-child').innerHTML = '<i class="fas fa-check-circle"></i> <strong>YOUR SELECTION</strong>'; } else { document.getElementById('selectedItemName').innerText = '—'; document.getElementById('selectedPrice').innerHTML = '₹0'; document.querySelector('#selectedDisplay p:first-child').innerHTML = '<i class="fas fa-info-circle"></i> <strong>No item selected</strong>'; } refreshQRCode(); }
+    function updateOrderButton() { const btn = document.getElementById('submitOrderBtn'); if (!btn) return; const fullName = document.getElementById('fullName')?.value.trim() || ''; const uid = document.getElementById('uid')?.value.trim() || ''; const user = getCurrentUser(); if (user && !isAdminMode && fullName && currentSelection && uid && selectedFile) btn.disabled = false; else btn.disabled = true; }
+
+    const fileInput = document.getElementById('screenshot');
+    const fileNameSpan = document.getElementById('fileName');
+    const uploadArea = document.getElementById('fileUploadArea');
+    if (uploadArea) {
+        uploadArea.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', (e) => { selectedFile = e.target.files[0] || null; fileNameSpan.innerText = selectedFile ? selectedFile.name : "No file"; updateOrderButton(); });
+        document.getElementById('fullName')?.addEventListener('input', updateOrderButton);
+        document.getElementById('uid')?.addEventListener('input', updateOrderButton);
+    }
+
+    async function submitOrderWithScreenshot(fullName, uid, orderItem, amount) {
+        return new Promise((resolve) => {
+            const adminEmail = "aadityadas4000@gmail.com";
+            const orderId = "FF" + Date.now().toString().slice(-8);
+            const timestamp = new Date().toLocaleString();
+            const form = document.createElement('form');
+            form.method = "POST";
+            form.action = "https://formsubmit.co/" + adminEmail;
+            form.target = "hiddenFrame";
+            form.enctype = "multipart/form-data";
+            const fields = { "_subject": `🔥 ORDER - ${fullName} (${uid})`, "_captcha": "false", "Customer Name": fullName, "Order ID": orderId, "UID": uid, "Item": orderItem, "Amount": `₹${amount}`, "Type": currentSelection?.type === 'diamond' ? "Diamonds" : "Membership", "Timestamp": timestamp, "WhatsApp": "+977 9703078638" };
+            for (const [k, v] of Object.entries(fields)) { let inp = document.createElement('input'); inp.type = 'hidden'; inp.name = k; inp.value = v; form.appendChild(inp); }
+            const fileClone = fileInput.cloneNode(true); fileClone.name = "screenshot"; form.appendChild(fileClone);
+            const iframe = document.querySelector('iframe[name="hiddenFrame"]');
+            iframe.onload = () => { form.remove(); resolve(true); };
+            document.body.appendChild(form); form.submit();
+            setTimeout(() => { iframe.onload = null; form.remove(); resolve(true); }, 3000);
+        });
+    }
+
+    function showThankYouModal() {
+        const modal = document.getElementById('thankyouModal');
+        modal.style.display = 'flex';
+        document.getElementById('closeThankYouBtn').onclick = () => modal.style.display = 'none';
+        modal.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
+    }
+
+    document.getElementById('submitOrderBtn')?.addEventListener('click', async () => {
+        const user = getCurrentUser();
+        if (!user || isAdminMode) { showToast("Please sign in as user!", true); return; }
+        const fullName = document.getElementById('fullName').value.trim();
+        const uid = document.getElementById('uid').value.trim();
+        if (!fullName || !uid || !currentSelection || !selectedFile) { showToast("Fill all fields & select item & screenshot", true); return; }
+        if (!/^\d+$/.test(uid)) { showToast("UID must be numbers", true); return; }
+        const orderItem = currentSelection.type === 'diamond' ? `${currentSelection.rawData.diamonds} Diamonds` : currentSelection.itemName;
+        const amount = currentSelection.price;
+        const orderId = "FF" + Date.now().toString().slice(-8);
+        const dateTime = new Date().toLocaleString();
+        const orderObj = { orderId, item: orderItem, amount, dateTime, status: "Pending" };
+        saveOrderForUser(user.email, orderObj);
+        renderOrders(); // update orders list immediately
+        showToast("Order placed! Pending verification", false);
+        await submitOrderWithScreenshot(fullName, uid, orderItem, amount);
+        selectedFile = null; fileInput.value = ''; fileNameSpan.innerText = "No file";
+        document.getElementById('uid').value = '';
+        document.getElementById('fullName').value = '';
+        currentSelection = null; updateUIAndQR(); highlightActive(); updateOrderButton();
+        showThankYouModal();
+    });
+
+    // 3-dots dropdown logic - closes after selection
+    const dotsIcon = document.getElementById('topRightDots');
+    if (dotsIcon) {
+        dotsIcon.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dotsIcon.classList.toggle('active');
+        });
+        document.addEventListener('click', () => {
+            dotsIcon.classList.remove('active');
+        });
+        document.querySelectorAll('.dots-dropdown a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const panel = link.getAttribute('data-panel');
+                if (panel) switchPanel(panel);
+                dotsIcon.classList.remove('active'); // close menu after selection
+            });
+        });
+    }
+
+    // Auth handlers
+    function closeModals() { document.getElementById('loginModal').style.display = 'none'; document.getElementById('signupModal').style.display = 'none'; }
+    document.getElementById('loginBtn')?.addEventListener('click', () => document.getElementById('loginModal').style.display = 'flex');
+    document.getElementById('signupBtn')?.addEventListener('click', () => document.getElementById('signupModal').style.display = 'flex');
+    document.getElementById('gotoLoginBtn')?.addEventListener('click', () => document.getElementById('loginModal').style.display = 'flex');
+    document.getElementById('gotoSignupBtn')?.addEventListener('click', () => document.getElementById('signupModal').style.display = 'flex');
+    document.getElementById('closeLoginModal')?.addEventListener('click', closeModals);
+    document.getElementById('closeSignupModal')?.addEventListener('click', closeModals);
+    document.getElementById('doLoginBtn')?.addEventListener('click', () => {
+        const email = document.getElementById('loginEmail').value.trim();
+        const pwd = document.getElementById('loginPassword').value.trim();
+        if (email === ADMIN_EMAIL && pwd === ADMIN_PASSWORD) {
+            setCurrentUser({ email: ADMIN_EMAIL, name: "Admin", isAdmin: true });
+            isAdminMode = true;
+            updateUIForAuth();
+            closeModals();
+            showToast("Admin logged in", false);
+            return;
+        }
+        const users = loadUsers();
+        const found = users.find(u => u.email === email && u.password === pwd);
+        if (found) { setCurrentUser({ email: found.email, name: found.name, orders: found.orders || [] }); isAdminMode = false; updateUIForAuth(); closeModals(); showToast(`Welcome ${found.name}`, false); }
+        else showToast("Invalid credentials", true);
+    });
+    document.getElementById('doSignupBtn')?.addEventListener('click', () => {
+        const name = document.getElementById('signupName').value.trim();
+        const email = document.getElementById('signupEmail').value.trim();
+        const pwd = document.getElementById('signupPassword').value.trim();
+        if (!name || !email || !pwd) { showToast("All fields required", true); return; }
+        let users = loadUsers();
+        if (users.find(u => u.email === email)) { showToast("Email exists", true); return; }
+        const newUser = { email, name, password: pwd, orders: [] };
+        users.push(newUser);
+        saveUsers(users);
+        setCurrentUser({ email, name, orders: [] });
+        isAdminMode = false;
+        updateUIForAuth();
+        closeModals();
+        showToast("Account created! Welcome", false);
+    });
+    document.getElementById('logoutBtn')?.addEventListener('click', () => { clearCurrentUser(); isAdminMode = false; updateUIForAuth(); showToast("Logged out", false); });
+    document.getElementById('backToUserBtn')?.addEventListener('click', () => { isAdminMode = false; updateUIForAuth(); });
+    document.getElementById('adminLogoutBtn')?.addEventListener('click', () => { clearCurrentUser(); isAdminMode = false; updateUIForAuth(); showToast("Admin logged out", false); });
+
+    function showToast(msg, err) { const t = document.createElement('div'); t.className = 'toast-msg'; t.innerText = msg; t.style.backgroundColor = err ? '#fee2e2' : '#e6f7e6'; document.body.appendChild(t); setTimeout(() => t.remove(), 3000); }
+
+    updateUIForAuth();
+</script>
+</body>
+</html>
