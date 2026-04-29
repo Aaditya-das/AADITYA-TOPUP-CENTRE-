@@ -1070,8 +1070,8 @@
     document.getElementById('adminLogoutBtn')?.addEventListener('click', () => { clearCurrentUser(); isAdminMode = false; updateUIForAuth(); showToast("Admin logged out", false); });
 
     function showToast(msg, err) { const t = document.createElement('div'); t.className = 'toast-msg'; t.innerText = msg; t.style.backgroundColor = err ? '#fee2e2' : '#e6f7e6'; document.body.appendChild(t); setTimeout(() => t.remove(), 3000); }
-
+    
     updateUIForAuth();
 </script>
-</body>
+</body/>
 </html>
