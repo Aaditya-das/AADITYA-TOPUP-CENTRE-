@@ -1,0 +1,14 @@
+```
+# Backup files
+*~
+*.bak
+*.backup
+*.old
+*.orig
+*.save
+*.tmp
+*.temp
+
+# HTML backup
+Index_backup.html
+```
